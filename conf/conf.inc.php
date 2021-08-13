@@ -1,9 +1,9 @@
 <?php
 
     define('HOST', 'localhost');  
-    define('DBNAME', 'funcao');    
+    define('DBNAME', 'autoEscola');    
     define('USER', 'root');  
-    define('PASSWORD', '1234567');
+    define('PASSWORD', '');
 
 
     
