@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <?php
     $title = "Prova";
+    $alternativa = isset($_POST["letra"]) ? $_POST["letra"] : "";
 
 ?>
 
@@ -9,4 +10,10 @@
     <meta charset="UTF-8">
     <title> <?php echo $title; ?> </title>
 </head>
-<body>
+    <body>
+        <h1> <?php echo $title; ?> </h1>
+        <form action="" method="post">
+            <label>   </label>
+            
+    </body>
+</html>
