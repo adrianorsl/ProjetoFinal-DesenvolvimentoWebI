@@ -12,10 +12,10 @@ CREATE TABLE `notas` (
   `nota` float(4),
   `func` varchar(11) NOT NULL,
   `cod` int(5) NOT NULL,
-  FOREIGN KEY (`cod`),
+  FOREIGN KEY (`cod`)
   REFERENCES `pessoa`(`codigo`),
-  FOREIGN KEY (`func`),
+  FOREIGN KEY (`func`)
   REFERENCES `pessoa`(`funcao`),
-  FOREIGN KEY (`aluno`),
-  REFERENCES `pessoa`(`nome`),
+  FOREIGN KEY (`aluno`)
+  REFERENCES `pessoa`(`nome`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
