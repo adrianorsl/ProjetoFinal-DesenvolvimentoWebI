@@ -103,7 +103,6 @@
         <?php
             if ($questao5 == "A") $valor = $valor + 1;
         ?>
-        <h1> <?php echo $alternativa ?> </h1><br>
         <h1> <?php echo $valor ?> </h1><br>
         <h1> <?php echo nota($valor) ?> </h1>
 
