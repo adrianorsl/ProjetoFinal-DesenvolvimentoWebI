@@ -7,8 +7,14 @@
 
     $logo1 = "Img/Logo1.jpg";
     $title = "Centro de Formações Lontrense";
-    $nome = (isset($_POST['nome']) ? $_POST['nome'] : '');
-    $senha = (isset($_POST['senha']) ? $_POST['senha'] : '');
+    $teste2 = "admin";
+    $teste = sha1($teste2);
+
+
+
+    session_start();
+    if (isset($_SESSION['usuario']))
+        header("location:adm.php");
  
 ?>
 <html lang="pt-br">
@@ -20,21 +26,23 @@
         <h3> <?php echo "<img src = $logo1  />"; ?> </h3> 
         <h1> <?php echo $title; ?> </h1>
 
-        <?php echo "Informe o nome e senha" ?>
-        <form action="" method="post">
-        <fieldset>
-        <legend>Nome</legend>
-            <label for="nome"></label>
-            <input type="text" name="nome" id="nome" placeholder="Digite seu nome" >
-        <legend>Senha</legend>
-            <label for="senha"></label>
-            <input type="text" name="senha" id="senha" placeholder="Digite sua senha" >
-        </fieldset>
-        <fieldset>
-            <input type="submit" name="ok" id="ok" value="Ok" >
-        </fieldset>
-        </form>
+        
 
+        <?php echo "Informe o nome e senha" ?>
+
+        <form action="acaoLogin.php" id="form" method="post">
+            <fieldset>
+                <legend>Autenticação</legend>
+                <label for="user">Usuário</label>
+                    <input type="text" name="user" id="user" value=""><br/><br/>
+                <label for="pass">Senha</label>
+                    <input type="password" name="pass" id="pass" value=""><br/><br/>
+                <button name="acao" value="login" id="login" type="submit">
+                Entrar
+                </button>
+            </fieldset>
+        </form>
+        <?php echo $teste ?>   
        
     </body>
 </html>
