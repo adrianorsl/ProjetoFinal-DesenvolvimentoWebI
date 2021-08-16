@@ -7,14 +7,11 @@
 
     $logo1 = "Img/Logo1.jpg";
     $title = "Centro de Formações Lontrense";
-    $teste2 = "admin";
-    $teste = sha1($teste2);
+    
 
 
 
-    session_start();
-    if (isset($_SESSION['usuario']))
-        header("location:adm.php");
+    
  
 ?>
 <html lang="pt-br">
@@ -42,7 +39,7 @@
                 </button>
             </fieldset>
         </form>
-        <?php echo $teste ?>   
+     
        
     </body>
 </html>
