@@ -5,8 +5,11 @@ require_once "conf/Crud.class.php";
 require_once "autoLoad.php";
 include_once "conf/conf.inc.php";
 include_once "conf/defaut.inc.php";
+include 'valida.php';
+
 $title = "Lista de Pessoas";
 $consulta = isset($_POST['consulta']) ? $_POST['consulta'] : "";
+$menu = (isset($_POST['menu']) ? $_POST['menu'] : "");
 
 ?>
 <html lang="pt-br">
@@ -61,6 +64,34 @@ $consulta = isset($_POST['consulta']) ? $_POST['consulta'] : "";
         </tr>
     <?php } ?>       
     </table>
-    
+    <a href="acaoLogin.php?acao=logoff">sair</a>
+
+
+    <form action="" method="post">
+    <h1> Menu </h1>
+    <select name="menu" id="menu">
+        <option value=""></option>
+        <option value="professor"> Professor</option>
+        <option value="aluno"> Prova</option>
+        <option value="administrador"> Administrador</option>
+        <fieldset>
+            <input type="submit" name="ok" id="ok" value="ok" >
+        </fieldset>
+    </select>
+    <?php
+        if ($menu == "administrador"){
+            header('Location: adm.php');
+            exit;
+        }else if ($menu == "aluno"){
+            header('Location: prova.php');
+            exit;
+        }else if ($menu == "professor"){
+            header('Location: professor.php');
+            exit;
+        }else{
+
+        }
+    ?>
 </body>
 </html>
+    
