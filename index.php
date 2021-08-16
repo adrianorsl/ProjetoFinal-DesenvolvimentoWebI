@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <?php
-    include_once "conf/default.inc.php";
-    require_once "conf/Conexao.php";
+    include_once "conf/defaut.inc.php";
+    include_once "conf/conf.inc.php";
+    require_once "conf/Conexao.class.php";
+
+
     $logo1 = "Img/Logo1.jpg";
     $title = "Centro de Formações Lontrense";
     $nome = (isset($_POST['nome']) ? $_POST['nome'] : '');
