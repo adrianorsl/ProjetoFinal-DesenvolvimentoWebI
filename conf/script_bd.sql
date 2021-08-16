@@ -17,8 +17,6 @@ CREATE TABLE IF NOT EXISTS pessoa (
 CREATE TABLE IF NOT EXISTS notas (
   aluno varchar(45) NOT NULL,
   nota float(4),
-  func varchar(11) NOT NULL,
-  cod int(5) NOT NULL,
-  FOREIGN KEY (aluno)
-  REFERENCES pessoa(nome)
+  cod int(5) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (codigo),
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
