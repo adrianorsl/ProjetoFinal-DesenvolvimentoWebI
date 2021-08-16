@@ -27,7 +27,7 @@ DROP TABLE IF EXISTS `login`;
 CREATE TABLE `login` (
   `codigo` int(11) NOT NULL AUTO_INCREMENT,
   `usuario` varchar(45) DEFAULT NULL,
-  `tipo` int(1),
+  `tipo`  int(1) DEFAULT NULL,
   `senha` varchar(45) DEFAULT NULL,
   `nome` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`codigo`)
@@ -41,6 +41,7 @@ CREATE TABLE `login` (
 LOCK TABLES `login` WRITE;
 /*!40000 ALTER TABLE `login` DISABLE KEYS */;
 INSERT INTO `login` VALUES (1,'admin', 1,'d033e22ae348aeb5660fc2140aec35850c4da997','Administrador');
+INSERT INTO `login` VALUES (2,'aluno', 2,'7c4a8d09ca3762af61e59520943dc26494f8941b','Aluno');
 /*!40000 ALTER TABLE `login` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
