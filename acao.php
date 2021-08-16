@@ -27,6 +27,8 @@
             inserir($codigo);
         else
             editar($codigo);
+    }elseif ($acao == "Enviar"){
+        inserirNota($codigo)
     }
 
     // Métodos para cada operação
@@ -81,6 +83,18 @@
         $pessoa = new Vinculo;
         $pessoa->buildFromObj($dados);
         return $pessoa;
+    }
+
+    function showNota($id){
+        $pdo = Conexao::getInstance(); 
+        $crud = Crud::getInstance($pdo, 'notas');  
+
+        $sql        = "SELECT * FROM notas WHERE cod = ?";  
+        $arrayParam = array($id);  
+        $dados2 = $crud->getSQLGeneric($sql, $arrayParam, FALSE);  
+        $aluno = new Nota;
+        $aluno->buildFromObj($dados2);
+        return $aluno;
     }
 
     // Busca as informações digitadas no form
