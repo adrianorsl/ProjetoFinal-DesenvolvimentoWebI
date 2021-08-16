@@ -12,4 +12,10 @@
 
     define('NOME_DO_PROJETO','ProjetoFinal');
     define('DESCRICAO_DO_PROJETO','Projeto final');
+
+    $tb_login = "autoEscola";
+
+
+	
+
 ?>
