@@ -44,8 +44,11 @@
 
     function inserirNota($codigo){
         $pdo = Conexao::getInstance(); 
-        $crud = Crud::getInstance($pdo, 'pessoa'); 
-        $pessoa = dadosForm();
+        $crud = Crud::getInstance($pdo, 'notas'); 
+        $aluno = dadosFormNota();
+        $arrayUser2 = array('aluno' => $aluno->getAluno(), 'nota' => $aluno->getNota());  
+        $retorno2   = $crud->insert($arrayUser2);  
+
     }
 
     function editar($codigo){
