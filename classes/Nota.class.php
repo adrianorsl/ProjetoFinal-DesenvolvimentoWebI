@@ -10,7 +10,7 @@ class Nota{
         return $this->aluno;
     }
 
-    public function setNome($aluno){
+    public function setAluno($aluno){
         $this->aluno = $aluno;
     }
 
