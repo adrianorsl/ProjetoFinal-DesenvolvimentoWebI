@@ -8,7 +8,7 @@
 	if ($acao == "logoff"){
 		session_start();
 		session_destroy();
-		header("location:login.php");	
+		header("location:index.php");	
 	}else{
 		if (isset($_POST["acao"])){
 			$acao = $_POST["acao"];
@@ -20,32 +20,26 @@
 		}
 	}
 	
-	function logar($user,$senha, $tipo){
+	function logar($user,$senha){
 		$sql = "SELECT * FROM ".$GLOBALS['tb_login'].
-		       " WHERE nome = '$user'";
+		       " WHERE usuario = '$user'";
 		$result = mysqli_query($GLOBALS['conexao'],$sql);
 		$senhaBD = "";
 		$usuario = "";
 		$nome = "";
-        $tipo = 0;
 
 		while ($row = mysqli_fetch_array($result)){
 			$senhaBD = $row['senha'];
-			$usuario = $row['nome'];
+			$usuario = $row['usuario'];
 			$nome = $row['nome'];
-            $tipo = $row['tipo'];
 		}
 		
+		$senha = sha1($senha);
 		if ($senha == $senhaBD){
 			session_start();
-			$_SESSION['nome'] = $usuario;
+			$_SESSION['usuario'] = $usuario;
 			$_SESSION['nome'] = $nome;
-            if ($tipo == 1){
-                header("location:adm.php");	
-            }elseif ($tipo == 2){
-                header("location:professor.php");	
-            }else
-			header("location:prova.php");	
+			header("location:adm.php");	
 		}else 
 			header("location:index.php");						
 	}
