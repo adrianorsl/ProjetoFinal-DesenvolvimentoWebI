@@ -141,8 +141,8 @@
             if ($questao5 == "D") $valor = $valor + 1;
         ?>
     </form>
-        <h1> <?php echo $valor ?> </h1><br>
-        <h1> <?php echo nota($valor) ?> </h1>
+        <h1> Nota: <?php echo nota($valor) ?> </h1>
+    
 
 
 
