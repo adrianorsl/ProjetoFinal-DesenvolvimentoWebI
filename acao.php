@@ -42,6 +42,12 @@
         header("location:cad.php");
     }
 
+    function inserirNota($codigo){
+        $pdo = Conexao::getInstance(); 
+        $crud = Crud::getInstance($pdo, 'pessoa'); 
+        $pessoa = dadosForm();
+    }
+
     function editar($codigo){
         $pdo = Conexao::getInstance(); 
         $crud = Crud::getInstance($pdo, 'pessoa'); 
@@ -86,6 +92,16 @@
         $dados['senha'] = $_POST['senha'];
         $pessoa->buildFromArray($dados);
         return $pessoa;
+    }
+
+    function dadosFormNota(){
+        $aluno = new Nota;
+        $dados2 = array();
+        $dados2['cod'] = $_POST['cod'];
+        $dados2['aluno'] = $_POST['aluno'];
+        $dados2['nota'] = $_POST['nota'];
+        $aluno->buildFromArray($dados2);
+        return $aluno;
     }
 ?>
 <html>
