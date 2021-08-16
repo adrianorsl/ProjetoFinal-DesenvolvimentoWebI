@@ -10,6 +10,6 @@
     define('DRIVER', 'mysql'); 
     define('CHARSET', 'utf8');
 
-    define('NOME_DO_PROJETO','AUTOESCOLA');
-    define('DESCRICAO_DO_PROJETO','login para acesso a paginas');
+    define('NOME_DO_PROJETO','ProjetoFinal');
+    define('DESCRICAO_DO_PROJETO','Projeto final');
 ?>
