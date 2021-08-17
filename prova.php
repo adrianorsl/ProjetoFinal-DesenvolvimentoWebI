@@ -1,8 +1,16 @@
 <!DOCTYPE html>
 <?php
 
+
+    require_once "conf/Conexao.class.php";  
+    require_once "conf/Crud.class.php"; 
+    require_once "autoLoad.php";
+    include_once "conf/conf.inc.php";
+    include_once "conf/defaut.inc.php";
+    
     $menu = (isset($_POST['menu']) ? $_POST['menu'] : "");
     $title = "Prova";
+    $consulta = isset($_POST['consulta']) ? $_POST['consulta'] : "";
     $questao1 = (isset($_POST["letra"]) ? $_POST["letra"] : '');
     $questao2 = (isset($_POST["letra2"]) ? $_POST["letra2"] : '');
     $questao3 = (isset($_POST["letra3"]) ? $_POST["letra3"] : '');
@@ -10,8 +18,6 @@
     $questao5 = (isset($_POST["letra5"]) ? $_POST["letra5"] : '');
     $valor = 0;
 
-
-   
 
 ?>
 <?php 
@@ -26,12 +32,33 @@
     <title> <?php echo $title; ?> </title>
 </head>
     <body>
+
+    <button>Novo</button></a>
+
+    <?php 
+    $pdo = Conexao::getInstance();
+    $consulta = $pdo->query("SELECT * FROM notas
+                             WHERE aluno 
+                             LIKE ''");
+    while ($linha = $consulta->fetch(PDO::FETCH_ASSOC)) {  
+        $aluno = new Nota;
+        $aluno->buildFromArray($linha);
+    ?>
+        <tr><td><?php echo $aluno->getCod();?></td>
+            <td><?php echo $aluno->getAluno();?></td>
+            <td><?php echo $aluno->getNota();?></td>
+            <td><a href='cadNotas.php?acao=editar&codigo=<?php echo $aluno->getCodigo();?>'><img class="icon" src="img/edit.png" alt=""></a></td>
+        </tr>
+
+    <?php } ?>       
+    </table>
+
     <h1> <?php echo $title; ?> </h1>
     <h2> Questão 1 </h2>
 
     <h2> Quando o condutor estacionar o veículo nos viadutos, pontes e túneis será punido com:</h2>
 
-    <form method="post" action=""> 
+    <form method="post" action= <a href="cadNotas.php">> 
         <label>Selecione a alternativa correta</label><br><br>
         
         <input type="radio" name="letra" value="A"
@@ -134,8 +161,9 @@
         <input type="radio" name="letra5" value="D"
             <?php if ( $questao5 == "D") echo "checked";?>>D)
         <label> Permitido quando o condutor faz sinais de braço, acionar acessórios ou comandos ou realizar mudanças de marchas.</label><br>
-
+   
         <input type="submit" name="Enviar" id="Enviar" value="Enviar">
+       
     
         <?php
             if ($questao5 == "D") $valor = $valor + 1;
