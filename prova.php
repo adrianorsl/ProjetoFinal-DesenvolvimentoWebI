@@ -33,7 +33,7 @@
 </head>
     <body>
 
-    <button>Novo</button></a>
+ 
 
     <?php 
     $pdo = Conexao::getInstance();
@@ -58,7 +58,7 @@
 
     <h2> Quando o condutor estacionar o veículo nos viadutos, pontes e túneis será punido com:</h2>
 
-    <form method="post" action= <a href="cadNotas.php">> 
+    <form method="post" action=""> 
         <label>Selecione a alternativa correta</label><br><br>
         
         <input type="radio" name="letra" value="A"
