@@ -28,7 +28,7 @@
         else
             editar($codigo);
     }elseif ($acao == "Enviar"){
-        inserirNota($codigo)
+        inserirNota($codigo);
     }
 
     // Métodos para cada operação
@@ -48,7 +48,7 @@
         $pdo = Conexao::getInstance(); 
         $crud = Crud::getInstance($pdo, 'notas'); 
         $aluno = dadosFormNota();
-        $arrayUser2 = array('aluno' => $aluno->getAluno(), 'nota' => $aluno->getNota());  
+        $arrayUser2 = array('aluno' => $aluno->getAluno(), 'nota' => $aluno->getNota($valor));  
         $retorno2   = $crud->insert($arrayUser2);  
 
     }
