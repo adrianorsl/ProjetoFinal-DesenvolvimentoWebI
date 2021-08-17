@@ -18,5 +18,5 @@ CREATE TABLE IF NOT EXISTS notas (
   aluno varchar(45) NOT NULL,
   nota float(4),
   cod int(5) NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (codigo),
+  PRIMARY KEY (cod)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
