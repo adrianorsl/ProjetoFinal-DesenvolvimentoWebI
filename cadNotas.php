@@ -3,7 +3,7 @@
 include_once "acao.php";
 $acao = isset($_GET['acao']) ? $_GET['acao'] : "";
 $obj;
-if ($acao == 'ok'){
+if ($acao == 'editar'){
     $codigo = isset($_GET['codigo']) ? $_GET['codigo'] : "";
     if ($codigo > 0)
         $obj = showNotas($codigo);
@@ -19,7 +19,7 @@ if ($acao == 'ok'){
 <body>
 <br>
 <a href="adm.php"><button>Listar</button></a>
-<a href="cad.php"><button>Novo</button></a>
+<a href="cadNotas.php"><button>Novo</button></a>
 <br><br>
 <form action="acao.php" method="post">
     <input readonly  type="text" name="codigo" id="codigo" value="<?php if ($acao == "editar") echo $obj->getCodigo(); else echo 0; ?>"><br>
