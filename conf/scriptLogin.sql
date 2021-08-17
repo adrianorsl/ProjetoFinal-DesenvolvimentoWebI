@@ -55,3 +55,4 @@ UNLOCK TABLES;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2017-03-07 11:03:28
+SELECT * FROM `login`; 
